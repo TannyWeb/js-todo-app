@@ -13,6 +13,14 @@ document.getElementById('add').addEventListener('click', function(){
 
 });
 
+function removeItem(){
+  var item = this.parentNode.parentNode;
+  var parent = item.parentNode;
+
+  parent.removeChild(item);
+
+}
+
 // Add a new item to the ToDo list
 function addItemTodo(text){
 
@@ -27,6 +35,9 @@ function addItemTodo(text){
   var remove = document.createElement('button');
   remove.classList.add('remove');
   remove.innerHTML = removeSVG;
+
+  // Add a click event for remove item
+  remove.addEventListener('click', removeItem)
 
   var complete = document.createElement('button');
   complete.classList.add('complete');
